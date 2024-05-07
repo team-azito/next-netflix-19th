@@ -35,7 +35,7 @@
     @apply flex items-center justify-center;
   }
 
-  .absolute-center {
-    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  .flex-column {
+    @apply flex flex-col;
   }
 }
