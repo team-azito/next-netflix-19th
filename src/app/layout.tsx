@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "유담이와 나현이의 Netflix",
+  title: "Netflix",
   description: "아지토 최고",
 };
 
