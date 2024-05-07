@@ -1,5 +1,10 @@
+import dynamic from "next/dynamic";
+
+const LandingAnimation = dynamic(() => import("@/components/root/LandingAnimation"), {
+  ssr: false,
+});
 const RootPage = () => {
-  return <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>;
+  return <LandingAnimation />;
 };
 
 export default RootPage;
