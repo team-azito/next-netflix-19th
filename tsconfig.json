@@ -22,6 +22,6 @@
       "#/*": ["./public/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.js", "src/app/not-found.tsㅌ"],
   "exclude": ["node_modules"]
 }

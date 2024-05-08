@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Netflix",
-  description: "나현이와 유담이의 넷플릭스",
+  description: "나현이와 유담이의 넷플릭스 클론코딩",
 };
 
 export default function RootLayout({

@@ -1,6 +1,7 @@
 import { getMovies } from "@/api/home";
 import { movieSectionTitle } from "@/constants/movies";
 import Image from "next/image";
+import Link from "next/link";
 
 const MovieSection = async ({ category }: { category: keyof typeof movieSectionTitle }) => {
   const moviesData = await getMovies(category);
@@ -9,18 +10,18 @@ const MovieSection = async ({ category }: { category: keyof typeof movieSectionT
   return (
     <section className="flex-column w-full gap-14pxr">
       <h2 className="text-21pxr font-bold">{movieSectionTitle[category]}</h2>
-      <div className="flex gap-7pxr overflow-scroll">
+      <div className="flex gap-7pxr overflow-auto">
         {moviesData.results.map((movie) => {
           if (!movie.poster_path) return null;
           return (
-            <div key={movie.id} className="min-w-103pxr h-161pxr relative">
+            <Link href={`/media/${movie.id}`} key={movie.id} className="min-w-103pxr h-161pxr relative">
               <Image
                 alt={`영화 포스터 이미지: ${movie.title}`}
                 fill
                 className="rounded-sm"
                 src={`${posterBaseUrl}${movie.poster_path}`}
               />
-            </div>
+            </Link>
           );
         })}
       </div>
