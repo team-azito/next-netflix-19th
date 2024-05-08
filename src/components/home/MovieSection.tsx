@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const MovieSection = async ({ category }: { category: keyof typeof movieSectionTitle }) => {
   const moviesData = await getMovies(category);
-  const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
+  const posterBaseUrl = process.env.NEXT_POSTER_BASE_URL;
 
   // 조건부 스타일 적용을 위한 변수
   const isPreview = category === "upcoming";
