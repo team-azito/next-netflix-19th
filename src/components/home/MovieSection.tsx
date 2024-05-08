@@ -1,14 +1,14 @@
 import { getMovies } from "@/api/home";
-import { GetMoviesParams } from "@/types/home";
+import { movieSectionTitle } from "@/constants/movies";
 import Image from "next/image";
 
-const MovieSection = async ({ category }: { category: GetMoviesParams }) => {
+const MovieSection = async ({ category }: { category: keyof typeof movieSectionTitle }) => {
   const moviesData = await getMovies(category);
   const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
 
   return (
-    <section className="flex-column w-full gap-14px">
-      {/* <p className="text-21pxr font-bold">{movieSectionTitle[category]}</p> */}
+    <section className="flex-column w-full gap-14pxr">
+      <h2 className="text-21pxr font-bold">{movieSectionTitle[category]}</h2>
       <div className="flex gap-7pxr overflow-scroll">
         {moviesData.results.map((movie) => {
           if (!movie.poster_path) return null;
