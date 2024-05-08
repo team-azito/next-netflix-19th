@@ -1,6 +1,9 @@
+import { movieSectionTitle } from "@/constants/movies";
 import { Movie } from "@/types/common";
 
-export type GetMoviesParams = "popular" | "top_rated" | "now_playing" | "upcoming";
+export type MovieCategory = keyof typeof movieSectionTitle;
+
+export type GetMoviesParams = MovieCategory;
 
 export interface GetMoviesResponse {
   page: number;
