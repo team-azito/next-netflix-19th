@@ -1,5 +1,5 @@
 const HomePage = () => {
-  return <div>배포 테스트</div>;
+  return <div>env 배포 오류 수정 테스트</div>;
 };
 
 export default HomePage;
