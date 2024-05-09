@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Netflix",
-  description: "아지토 최고",
+  description: "나현이와 유담이의 넷플릭스 클론코딩",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="flex-center bg-black min-h-screen">
-        <div className="flex-center w-[37.5rem] h-full">{children}</div>
+        <div className="flex-center w-375pxr h-full">{children}</div>
       </body>
     </html>
   );

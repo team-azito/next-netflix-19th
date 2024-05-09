@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    font-size: 62.5%;
+    /* font-size: 62.5%; */
     height: 100%;
   }
 
@@ -28,6 +28,14 @@
   a,
   button {
     cursor: pointer;
+  }
+
+  body {
+    -ms-overflow-style: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
 @layer utilities {
