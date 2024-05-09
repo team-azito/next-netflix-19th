@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: "https://api.themoviedb.org/3/",
   headers: { "Content-Type": "application/json", authorization: `Bearer ${process.env.ACCESS_TOKEN}` },
 });
 
