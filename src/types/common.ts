@@ -1,3 +1,5 @@
+import { movieSectionTitle } from "@/constants/movies";
+
 export interface Movie {
   adult: boolean;
   backdrop_path: string | null;
@@ -14,3 +16,5 @@ export interface Movie {
   vote_average: number;
   vote_count: number;
 }
+
+export type MovieCategory = keyof typeof movieSectionTitle;

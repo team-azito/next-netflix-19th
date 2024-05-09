@@ -1,7 +1,4 @@
-import { movieSectionTitle } from "@/constants/movies";
-import { Movie } from "@/types/common";
-
-export type MovieCategory = keyof typeof movieSectionTitle;
+import { Movie, MovieCategory } from "@/types/common";
 
 export type GetMoviesParams = MovieCategory;
 
