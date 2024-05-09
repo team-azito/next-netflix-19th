@@ -58,7 +58,7 @@ const MovieSection = ({ category, movieData }: MovieSectionProps) => {
         </div>
       </div>
       <button onClick={() => handleScroll("right")} aria-label="Scroll Right">
-        <ArrowIcon className="rotate-180 absolute right-3pxr z-10" />
+        <ArrowIcon className="rotate-180 absolute right-3pxr z-10" alt="오른쪽 화살표" />
       </button>
     </section>
   );
