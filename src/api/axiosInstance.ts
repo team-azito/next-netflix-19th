@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const instance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  headers: { "Content-Type": "application/json", authorization: `Bearer ${process.env.ACCESS_TOKEN}` },
+  headers: { "Content-Type": "application/json", authorization: `Bearer ${process.env.NEXT_ACCESS_TOKEN}` },
 });
 
 // 항상 패칭 요청을 보내면 response.data가 값이 리턴되게
