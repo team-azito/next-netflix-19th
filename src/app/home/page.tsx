@@ -1,5 +1,5 @@
 const HomePage = () => {
-  return <div>env 배포 오류 수정 테스트</div>;
+  return <div>Vercel 환경변수 수정</div>;
 };
 
 export default HomePage;
