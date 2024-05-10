@@ -1,4 +1,5 @@
 import MovieSection from "@/components/home/MovieSection";
+import HomeHeader from "@/components/home/HomeHeader";
 import { getMovies } from "@/api/home";
 import { MovieCategory } from "@/types/common";
 
@@ -14,14 +15,14 @@ const HomePage = async () => {
   }));
 
   return (
-    <>
-      <div>이슈 테스트</div>
-      <div className="flex-column gap-22pxr w-full pl-16pxr">
+    <div className="flex-column w-full pl-16pxr">
+      <HomeHeader />
+      <div className="flex-column gap-22pxr">
         {moviesData.map(({ category, data }) => (
           <MovieSection key={category} category={category} movieData={data} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
