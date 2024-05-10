@@ -1,6 +1,10 @@
+"use client";
+import { usePathname } from "next/navigation";
 import FooterItem from "./FooterItem";
 
 const Footer = () => {
+  const pathname = usePathname();
+  if (pathname === "/") return null;
   return (
     <nav className="z-50 bg-black h-48pxr">
       <ul className="flex-center gap-40pxr">
