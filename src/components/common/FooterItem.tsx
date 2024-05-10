@@ -3,8 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
-const FooterItem = ({ item, children }) => {
+interface FooterItemProps {
+  item: "home" | "search" | "comingsoon" | "downloads" | "more";
+  children: ReactNode;
+}
+
+const FooterItem = ({ item, children }: FooterItemProps) => {
   const path = usePathname();
   const isCurrentPath = path === `/${item}`;
   const textColorClass = isCurrentPath ? "text-white" : "text-gray-10";
