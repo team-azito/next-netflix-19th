@@ -15,7 +15,7 @@ const HomePage = async () => {
 
   return (
     <>
-      <div>테스트</div>
+      <div>이슈 테스트</div>
       <div className="flex-column gap-22pxr w-full pl-16pxr">
         {moviesData.map(({ category, data }) => (
           <MovieSection key={category} category={category} movieData={data} />
