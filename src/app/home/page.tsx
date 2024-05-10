@@ -14,11 +14,13 @@ const HomePage = async () => {
   }));
 
   return (
-    <div className="flex-column gap-22pxr w-full pl-16pxr">
-      {moviesData.map(({ category, data }) => (
-        <MovieSection key={category} category={category} movieData={data} />
-      ))}
-    </div>
+    <>
+      <div className="flex-column gap-22pxr w-full pl-16pxr">
+        {moviesData.map(({ category, data }) => (
+          <MovieSection key={category} category={category} movieData={data} />
+        ))}
+      </div>
+    </>
   );
 };
 
