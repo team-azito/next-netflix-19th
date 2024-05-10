@@ -9,12 +9,9 @@ const MoviePlay = ({ movieData }) => {
 
   return (
     <section className="flex-column items-center mb-43pxr gap-11pxr">
-      <Image
-        src={`${posterBaseUrl}${data.poster_path}`}
-        alt={`영화 포스터 이미지: ${data.title}`}
-        width={375}
-        height={397}
-      />
+      <div className="h-375pxr w-full relative">
+        <Image src={`${posterBaseUrl}${data.poster_path}`} alt={`영화 포스터 이미지: ${data.title}`} fill />
+      </div>
       <div>
         {/* icon */}
         <span>#{randomIndex} in Korea Today</span>
