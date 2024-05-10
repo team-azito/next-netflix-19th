@@ -2,7 +2,7 @@ import FooterItem from "./FooterItem";
 
 const Footer = () => {
   return (
-    <nav className="z-50 bg-black h-48pxr">
+    <nav className="z-50 bg-black h-48pxr fixed bottom-0 w-full flex-center">
       <ul className="flex-center gap-40pxr">
         <li>
           <FooterItem item="home">Home</FooterItem>
