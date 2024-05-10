@@ -1,15 +1,16 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* font-size: 62.5%; */
     height: 100%;
   }
 
   body {
     @apply text-white;
+    font-family: "SF Pro Display";
   }
 
   html,
