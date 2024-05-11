@@ -3,8 +3,12 @@ import Link from "next/link";
 import PlusIcon from "#/icons/home/plus.svg";
 import PlayIcon from "#/icons/home/play.svg";
 import InfoIcon from "#/icons/home/info.svg";
+import { GetMoviesResponse } from "@/types/home";
 
-const MoviePlay = ({ movieData }) => {
+interface MoviePlayProps {
+  movieData: GetMoviesResponse;
+}
+const MoviePlay = ({ movieData }: MoviePlayProps) => {
   const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
 
   const randomIndex = Math.floor(Math.random() * movieData.results.length) + 1; // 랜덤 인덱스 생성
