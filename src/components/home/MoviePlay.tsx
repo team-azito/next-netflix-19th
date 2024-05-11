@@ -29,19 +29,19 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
       </div>
       <div className="flex gap-50pxr">
         <div className="flex-center flex-column">
-          <PlusIcon />
+          <PlusIcon alt="plus 아이콘" />
           My List
         </div>
         <Link href={`/media/${data.id}`}>
           <div className="flex-center h-45pxr w-110pxr bg-gray-30 rounded-md">
             <div className="text-black flex-center gap-15pxr">
-              <PlayIcon />
+              <PlayIcon alt="play 아이콘" />
               Play
             </div>
           </div>
         </Link>
         <div className="flex-center flex-column">
-          <InfoIcon />
+          <InfoIcon alt="info 아이콘" />
           Info
         </div>
       </div>

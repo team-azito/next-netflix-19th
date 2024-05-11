@@ -5,7 +5,7 @@ const HomeHeader = () => {
   return (
     <header className="flex my-24pxr items-center fixed z-50">
       <Link href="/home">
-        <Logo className="mr-25pxr" />
+        <Logo alt="로고" className="mr-25pxr" />
       </Link>
 
       <nav>

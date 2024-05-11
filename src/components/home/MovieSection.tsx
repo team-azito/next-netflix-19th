@@ -35,7 +35,7 @@ const MovieSection = ({ category, movieData }: MovieSectionProps) => {
   return (
     <section className="flex-center w-full relative">
       <button onClick={() => handleScroll("left")} aria-label="Scroll Left">
-        <ArrowIcon className="absolute left-0 z-10" />
+        <ArrowIcon alt="왼쪽 화살표" className="absolute left-0 z-10" />
       </button>
 
       <div className="flex-column w-full gap-14pxr">
