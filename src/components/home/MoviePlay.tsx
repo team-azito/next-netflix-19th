@@ -25,7 +25,7 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
         />
       </div>
       <div>
-        <span>#{randomIndex} in Korea Today</span>
+        <span>#{randomIndex + 1} in Korea Today</span>
       </div>
       <div className="flex gap-50pxr">
         <div className="flex-center flex-column">
