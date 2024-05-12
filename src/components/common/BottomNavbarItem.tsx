@@ -4,12 +4,12 @@ import * as icons from "#/icons/bottomNavbar/svg";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
-interface FooterItemProps {
+interface BottomNavbarItemProps {
   item: "home" | "search" | "comingsoon" | "downloads" | "more";
   children: ReactNode;
 }
 
-const BottomNavbarItem = ({ item, children }: FooterItemProps) => {
+const BottomNavbarItem = ({ item, children }: BottomNavbarItemProps) => {
   const path = usePathname();
   const isCurrentPath = path === `/${item}`;
   const textColorClass = isCurrentPath ? "text-white" : "text-gray-10";
@@ -19,7 +19,6 @@ const BottomNavbarItem = ({ item, children }: FooterItemProps) => {
   return (
     <div>
       <Link href={`/${item}`} className="flex-column items-center">
-        {/* <Image src={`/icons/bottomNavbar/${item}.svg`} alt={item} width={24} height={24} /> */}
         <Icon className={textColorClass} />
         <span className={`text-8pxr ${textColorClass}`}>{children}</span>
       </Link>

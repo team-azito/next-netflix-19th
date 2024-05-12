@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "@/components/common/BottomNavbar";
+import BottomNavbar from "@/components/common/BottomNavbar";
 
 export const metadata: Metadata = {
   title: "Netflix",
@@ -17,7 +17,7 @@ export default function RootLayout({
       <body className="flex-center bg-black min-h-screen">
         <div className="flex-column flex-center w-375pxr">
           <div className="w-full">{children}</div>
-          <Footer />
+          <BottomNavbar />
         </div>
       </body>
     </html>

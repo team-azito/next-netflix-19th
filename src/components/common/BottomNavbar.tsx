@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import FooterItem from "./BottomNavbarItem";
+import BottomNavbarItem from "./BottomNavbarItem";
 
 const BottomNavbar = () => {
   const pathname = usePathname();
@@ -9,19 +9,19 @@ const BottomNavbar = () => {
     <nav className="z-50 bg-black h-48pxr fixed bottom-0 w-full flex-center">
       <ul className="flex-center gap-40pxr">
         <li>
-          <FooterItem item="home">Home</FooterItem>
+          <BottomNavbarItem item="home">Home</BottomNavbarItem>
         </li>
         <li>
-          <FooterItem item="search">Search</FooterItem>
+          <BottomNavbarItem item="search">Search</BottomNavbarItem>
         </li>
         <li>
-          <FooterItem item="comingsoon">Coming soon</FooterItem>
+          <BottomNavbarItem item="comingsoon">Coming soon</BottomNavbarItem>
         </li>
         <li>
-          <FooterItem item="downloads">Downloads</FooterItem>
+          <BottomNavbarItem item="downloads">Downloads</BottomNavbarItem>
         </li>
         <li>
-          <FooterItem item="more">More</FooterItem>
+          <BottomNavbarItem item="more">More</BottomNavbarItem>
         </li>
       </ul>
     </nav>
