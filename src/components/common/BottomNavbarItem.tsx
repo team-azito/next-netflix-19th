@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import * as icons from "#/icons/bottomNavbar/svg";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
@@ -14,15 +14,13 @@ const BottomNavbarItem = ({ item, children }: FooterItemProps) => {
   const isCurrentPath = path === `/${item}`;
   const textColorClass = isCurrentPath ? "text-white" : "text-gray-10";
 
+  const Icon = icons[item];
+
   return (
     <div>
       <Link href={`/${item}`} className="flex-column items-center">
-        <Image
-          src={isCurrentPath ? `/icons/bottomNavbar/${item}.svg` : `/icons/bottomNavbar/${item}-gray.svg`}
-          alt={item}
-          width={24}
-          height={24}
-        />
+        {/* <Image src={`/icons/bottomNavbar/${item}.svg`} alt={item} width={24} height={24} /> */}
+        <Icon className={textColorClass} />
         <span className={`text-8pxr ${textColorClass}`}>{children}</span>
       </Link>
     </div>
