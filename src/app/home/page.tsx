@@ -18,7 +18,7 @@ const HomePage = async () => {
   const upcomingMoviesData = moviesData.find((item) => item.category === "upcoming");
 
   return (
-    <div className="flex-column w-full pl-16pxr">
+    <div className="flex-column w-full">
       <HomeHeader />
       {upcomingMoviesData && <MoviePlay movieData={upcomingMoviesData.data} />}
       <div className="flex-column gap-22pxr">
