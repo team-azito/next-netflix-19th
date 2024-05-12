@@ -9,7 +9,7 @@ interface FooterItemProps {
   children: ReactNode;
 }
 
-const FooterItem = ({ item, children }: FooterItemProps) => {
+const BottomNavbarItem = ({ item, children }: FooterItemProps) => {
   const path = usePathname();
   const isCurrentPath = path === `/${item}`;
   const textColorClass = isCurrentPath ? "text-white" : "text-gray-10";
@@ -18,7 +18,7 @@ const FooterItem = ({ item, children }: FooterItemProps) => {
     <div>
       <Link href={`/${item}`} className="flex-column items-center">
         <Image
-          src={isCurrentPath ? `/icons/footer/${item}.svg` : `/icons/footer/${item}-gray.svg`}
+          src={isCurrentPath ? `/icons/bottomNavbar/${item}.svg` : `/icons/bottomNavbar/${item}-gray.svg`}
           alt={item}
           width={24}
           height={24}
@@ -29,4 +29,4 @@ const FooterItem = ({ item, children }: FooterItemProps) => {
   );
 };
 
-export default FooterItem;
+export default BottomNavbarItem;

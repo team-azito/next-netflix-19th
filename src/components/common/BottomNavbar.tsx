@@ -1,8 +1,8 @@
 "use client";
 import { usePathname } from "next/navigation";
-import FooterItem from "./FooterItem";
+import FooterItem from "./BottomNavbarItem";
 
-const Footer = () => {
+const BottomNavbar = () => {
   const pathname = usePathname();
   if (pathname === "/") return null;
   return (
@@ -28,4 +28,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default BottomNavbar;
