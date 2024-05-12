@@ -11,7 +11,7 @@ interface MoviePlayProps {
 const MoviePlay = ({ movieData }: MoviePlayProps) => {
   const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
 
-  const randomIndex = Math.floor(Math.random() * movieData.results.length) + 1; // 랜덤 인덱스 생성
+  const randomIndex = Math.floor(Math.random() * movieData.results.length);
   const data = movieData.results[randomIndex];
 
   return (
