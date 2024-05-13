@@ -37,6 +37,9 @@ const config: Config = {
       height: {
         exceptNav: "calc(100vh - 3rem)",
       },
+      backgroundImage: {
+        "gradient-to-b": "linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) , rgba(0, 0, 0, 1))",
+      },
     },
   },
   plugins: [],
