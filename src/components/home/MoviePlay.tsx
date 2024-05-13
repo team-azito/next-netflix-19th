@@ -18,7 +18,7 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
     <section className="flex-column items-center mb-43pxr gap-11pxr">
       <div className="h-375pxr w-full relative">
         <Image src={`${posterBaseUrl}${data.poster_path}`} alt={`영화 포스터 이미지: ${data.title}`} fill />
-        <div className="absolute inset-0pxr z-50 w-full bg-gradient-to-b"></div>
+        <div className="absolute inset-0pxr bg-gradient-to-b"></div>
       </div>
       <div>
         <span className="text-13pxr font-bold">#{randomIndex + 1} in Korea Today</span>
