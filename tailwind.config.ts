@@ -34,6 +34,9 @@ const config: Config = {
           30: "#C4C4C4",
         },
       },
+      height: {
+        exceptNav: "calc(100vh - 3rem)",
+      },
     },
   },
   plugins: [],

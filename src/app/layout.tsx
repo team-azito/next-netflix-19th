@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className="flex-center bg-black min-h-screen">
         <div className="flex-column w-375pxr">
-          <div className="w-full">{children}</div>
+          <div className="pb-48pxr">{children}</div>
           <BottomNavbar />
         </div>
       </body>
