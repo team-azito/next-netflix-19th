@@ -25,22 +25,22 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
         />
       </div>
       <div>
-        <span>#{randomIndex + 1} in Korea Today</span>
+        <span className="text-13pxr font-bold">#{randomIndex + 1} in Korea Today</span>
       </div>
       <div className="flex gap-50pxr">
-        <div className="flex-center flex-column">
+        <div className="flex-center flex-column gap-3pxr text-13pxr">
           <PlusIcon alt="plus 아이콘" />
           My List
         </div>
         <Link href={`/media/${data.id}`}>
           <div className="flex-center h-45pxr w-110pxr bg-gray-30 rounded-md">
-            <div className="text-black flex-center gap-15pxr">
+            <div className="text-black flex-center gap-13pxr font-semibold text-18pxr">
               <PlayIcon alt="play 아이콘" />
               Play
             </div>
           </div>
         </Link>
-        <div className="flex-center flex-column">
+        <div className="flex-center flex-column gap-3pxr text-13pxr">
           <InfoIcon alt="info 아이콘" />
           Info
         </div>
