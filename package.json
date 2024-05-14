@@ -16,7 +16,6 @@
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
     "next": "14.2.3",
-    "prettier": "^3.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-lottie-player": "^2.0.0",
@@ -35,6 +34,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "postcss": "^8",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.3"
   },
   "lint-staged": {
