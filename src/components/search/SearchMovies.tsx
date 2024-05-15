@@ -2,14 +2,13 @@
 
 import SearchIcon from "#/icons/search/icon-search.svg";
 import CloseIcon from "#/icons/search/icon-close.svg";
-import PlayIcon from "#/icons/search/icon-play.svg";
-import Image from "next/image";
 
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { getMovies } from "@/api/home";
 import { ChangeEvent, useEffect, useState } from "react";
 import { getSearchMovies } from "@/api/search";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
+import SearchedMovies from "@/components/search/SearchedMovies";
 
 const SearchMovies = () => {
   const { data: popularMoviesData } = useQuery({ queryKey: ["popularMovies"], queryFn: () => getMovies("popular") });
@@ -45,34 +44,9 @@ const SearchMovies = () => {
       </div>
 
       {inputValue ? (
-        <>
-          {searchMovies?.results.map((movie) => (
-            <div key={movie.id} className="flex h-76pxr cursor-pointer bg-gray-20">
-              <div className="relative h-full min-w-146pxr">
-                <Image src={`${posterBaseUrl}${movie.poster_path}`} className="object-cover" fill alt="미디어 이미지" />
-              </div>
-              <div className="flex flex-grow items-center justify-between px-10pxr py-21pxr">
-                <p className="max-w-160pxr text-16pxr">{movie.title}</p>
-                <PlayIcon alt="재생 아이콘" />
-              </div>
-            </div>
-          ))}{" "}
-        </>
+        <>{searchMovies?.results && <SearchedMovies moviesData={searchMovies?.results} />}</>
       ) : (
-        <>
-          <h1 className=" px-12pxr py-24pxr text-27pxr font-bold">Top Searches</h1>
-          {popularMoviesData?.results.map((movie) => (
-            <div key={movie.id} className="flex h-76pxr cursor-pointer bg-gray-20">
-              <div className="relative h-full min-w-146pxr">
-                <Image src={`${posterBaseUrl}${movie.poster_path}`} className="object-cover" fill alt="미디어 이미지" />
-              </div>
-              <div className="flex flex-grow items-center justify-between px-10pxr py-21pxr">
-                <p className="max-w-160pxr text-16pxr">{movie.title}</p>
-                <PlayIcon alt="재생 아이콘" />
-              </div>
-            </div>
-          ))}
-        </>
+        <>{popularMoviesData?.results && <SearchedMovies moviesData={popularMoviesData?.results} />}</>
       )}
 
       <div ref={targetRef}></div>

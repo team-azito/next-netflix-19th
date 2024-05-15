@@ -4,7 +4,7 @@ export type GetMoviesParams = MovieCategory;
 
 export interface GetMoviesResponse {
   page: number;
-  results: Movie[];
+  results: Movie[] | [];
   total_pages: number;
   total_results: number;
 }
