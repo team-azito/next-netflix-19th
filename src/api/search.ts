@@ -1,6 +1,9 @@
 import { instance } from "@/api/axiosInstance";
-import { GetMoviesParams, GetMoviesResponse } from "@/types/home";
+import { getSearchMoviessParams, getSearchMoviessResponse } from "@/types/search";
 
-export const getSearchMovie = async (page = 1, query: string): Promise<GetMoviesResponse> => {
+export const getSearchMovies = async ({
+  page = 1,
+  query,
+}: getSearchMoviessParams): Promise<getSearchMoviessResponse> => {
   return await instance.get(`search/movie?&language=en-US&page=${page}&include_adult=false&query=${query}`);
 };
