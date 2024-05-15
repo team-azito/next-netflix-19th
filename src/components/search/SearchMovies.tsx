@@ -1,13 +1,14 @@
+"use client";
 import SearchIcon from "#/icons/search/icon-search.svg";
 import CloseIcon from "#/icons/search/icon-close.svg";
 import PlayIcon from "#/icons/search/icon-play.svg";
 import Image from "next/image";
-import { Movie } from "@/types/common";
 
-interface SearchMoviesProps {
-  popularMoviesData: Movie[];
-}
-const SearchMovies = ({ popularMoviesData }: SearchMoviesProps) => {
+import { useQuery } from "@tanstack/react-query";
+import { getMovies } from "@/api/home";
+
+const SearchMovies = () => {
+  const { data: popularMoviesData } = useQuery({ queryKey: ["popularMovies"], queryFn: () => getMovies("popular") });
   const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
   return (
     <div className="w-full">
@@ -24,7 +25,7 @@ const SearchMovies = ({ popularMoviesData }: SearchMoviesProps) => {
 
       <h1 className=" px-12pxr py-24pxr text-27pxr font-bold">Top Searches</h1>
 
-      {popularMoviesData.map((movie) => (
+      {popularMoviesData?.results.map((movie) => (
         <div key={movie.id} className="flex h-76pxr cursor-pointer bg-gray-20">
           <div className="relative h-full min-w-146pxr">
             <Image src={`${posterBaseUrl}${movie.poster_path}`} className="object-cover" fill alt="미디어 이미지" />

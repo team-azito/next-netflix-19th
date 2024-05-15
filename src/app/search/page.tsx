@@ -1,10 +1,17 @@
-import { getMovies } from "@/api/home";
+import { dehydrate, QueryClient, HydrationBoundary } from "@tanstack/react-query";
 import SearchMovies from "@/components/search/SearchMovies";
+import { getMovies } from "@/api/home";
 
 const SearchPage = async () => {
-  const { results: popularMoviesData } = await getMovies("popular");
+  const queryClient = new QueryClient();
 
-  return <SearchMovies popularMoviesData={popularMoviesData} />;
+  await queryClient.prefetchQuery({ queryKey: ["popularMovies"], queryFn: () => getMovies("popular") });
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <SearchMovies />
+    </HydrationBoundary>
+  );
 };
 
 export default SearchPage;
