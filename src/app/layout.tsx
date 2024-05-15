@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="flex-center min-h-screen bg-black">
+      <body className="align-center flex min-h-screen justify-center bg-black">
         <Providers>
           <div className="flex-column w-375pxr">
             <div className="pb-48pxr">{children}</div>
