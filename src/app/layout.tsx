@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import BottomNavbar from "@/components/common/BottomNavbar";
+import Providers from "@/app/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Netflix",
@@ -14,11 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="flex-center bg-black min-h-screen">
-        <div className="flex-column w-375pxr">
-          <div className="pb-48pxr">{children}</div>
-          <BottomNavbar />
-        </div>
+      <body className="flex-center min-h-screen bg-black">
+        <Providers>
+          <div className="flex-column w-375pxr">
+            <div className="pb-48pxr">{children}</div>
+            <BottomNavbar />
+          </div>
+        </Providers>
       </body>
     </html>
   );

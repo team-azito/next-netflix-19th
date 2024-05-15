@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.36.0",
+    "@tanstack/react-query-devtools": "^5.36.0",
+    "@tanstack/react-query-next-experimental": "^5.36.0",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/typescript-estree": "^7.8.0",
     "axios": "^1.6.8",
