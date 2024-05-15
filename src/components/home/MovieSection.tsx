@@ -33,9 +33,9 @@ const MovieSection = ({ category, movieData }: MovieSectionProps) => {
   };
 
   return (
-    <section className="flex-center w-full relative">
+    <section className="flex-center relative w-full">
       <button onClick={() => handleScroll("left")} aria-label="Scroll Left">
-        <ArrowIcon alt="왼쪽 화살표" className="absolute left-0 z-10" />
+        <ArrowIcon alt="왼쪽 화살표" className="left-0 absolute z-10" />
       </button>
 
       <div className="flex-column w-full gap-14pxr">
@@ -58,7 +58,7 @@ const MovieSection = ({ category, movieData }: MovieSectionProps) => {
         </div>
       </div>
       <button onClick={() => handleScroll("right")} aria-label="Scroll Right">
-        <ArrowIcon className="rotate-180 absolute right-3pxr z-10" alt="오른쪽 화살표" />
+        <ArrowIcon className="absolute right-3pxr z-10 rotate-180" alt="오른쪽 화살표" />
       </button>
     </section>
   );
