@@ -14,6 +14,8 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
   const randomIndex = Math.floor(Math.random() * movieData.results.length);
   const data = movieData.results[randomIndex];
 
+  console.log(randomIndex);
+
   return (
     <section className="flex-column items-center mb-43pxr gap-11pxr">
       <div className="h-375pxr w-full relative">
