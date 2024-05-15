@@ -5,24 +5,38 @@ import CloseIcon from "#/icons/search/icon-close.svg";
 
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { getMovies } from "@/api/home";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { getSearchMovies } from "@/api/search";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
 import SearchedMovies from "@/components/search/SearchedMovies";
+import { debounce } from "lodash";
 
 const SearchMovies = () => {
   const { data: popularMoviesData } = useQuery({ queryKey: ["popularMovies"], queryFn: () => getMovies("popular") });
-  const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
 
   const [inputValue, setInputValue] = useState("");
+  const [debouncedInputValue, setDebouncedInputValue] = useState("");
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
+  // 디바운스 함수 생성
+  const debouncedSearch = useCallback(
+    debounce((value: string) => {
+      setDebouncedInputValue(value);
+    }, 300),
+    [],
+  );
+
+  // inputValue가 변경될 때마다 디바운스된 함수 호출
+  useEffect(() => {
+    debouncedSearch(inputValue);
+  }, [inputValue, debouncedSearch]);
+
   const { data: searchMovies } = useQuery({
-    queryKey: ["searchMovies", inputValue],
-    queryFn: () => getSearchMovies({ page: 1, query: inputValue }),
+    queryKey: ["searchMovies", debouncedInputValue],
+    queryFn: () => getSearchMovies({ page: 1, query: debouncedInputValue }),
     enabled: !!inputValue,
   });
 
@@ -46,7 +60,10 @@ const SearchMovies = () => {
       {inputValue ? (
         <>{searchMovies?.results && <SearchedMovies moviesData={searchMovies?.results} />}</>
       ) : (
-        <>{popularMoviesData?.results && <SearchedMovies moviesData={popularMoviesData?.results} />}</>
+        <>
+          <h1 className="px-12pxr py-24pxr text-27pxr font-bold">Top Searches</h1>
+          {popularMoviesData?.results && <SearchedMovies moviesData={popularMoviesData?.results} />}
+        </>
       )}
 
       <div ref={targetRef}></div>
