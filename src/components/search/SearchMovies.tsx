@@ -2,7 +2,6 @@
 
 import SearchIcon from "#/icons/search/icon-search.svg";
 import CloseIcon from "#/icons/search/icon-close.svg";
-import SkeletonMovies from "@/components/search/SkeletonMovies";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { getMovies } from "@/api/home";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
@@ -39,7 +38,7 @@ const SearchMovies = () => {
 
   const { isVisible, targetRef } = useInfiniteScroll();
 
-  const { isFetching, data, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  const { isFetching, data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
     queryKey: ["searchMovies", debouncedInputValue],
     queryFn: ({ pageParam }) => {
       return getSearchMovies({ page: pageParam, query: debouncedInputValue });
@@ -49,7 +48,6 @@ const SearchMovies = () => {
       if (lastPage.page < lastPage.total_pages) {
         return lastPage.page + 1;
       }
-      return undefined;
     },
     enabled: !!debouncedInputValue,
   });
@@ -79,7 +77,10 @@ const SearchMovies = () => {
 
       {inputValue ? (
         <>
-          <SearchedMovies moviesData={searchMovies} isLoading={isFetching} />
+          <SearchedMovies
+            moviesData={searchMovies}
+            isLoading={isFetching && searchMovies.length !== 0 && !isFetchingNextPage}
+          />
           {!isFetching && searchMovies.length === 0 && (
             <p className="flex-center mt-120pxr">{debouncedInputValue}에 대한 검색 결과가 없어요.</p>
           )}
@@ -87,11 +88,7 @@ const SearchMovies = () => {
       ) : (
         <>
           <h1 className="px-12pxr py-24pxr text-27pxr font-bold">Top Searches</h1>
-          {isLoadingPopularMovies ? (
-            <SkeletonMovies />
-          ) : (
-            <SearchedMovies moviesData={popularMoviesData?.results || []} isLoading={isLoadingPopularMovies} />
-          )}
+          <SearchedMovies moviesData={popularMoviesData?.results || []} isLoading={isLoadingPopularMovies} />
         </>
       )}
       <div ref={targetRef} />

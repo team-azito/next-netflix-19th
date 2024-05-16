@@ -16,30 +16,28 @@ const SearchedMovies = ({ moviesData, isLoading }: SearchedMoviesProps) => {
   }
   return (
     <>
-      {moviesData?.map((movie) => {
-        return (
-          <div key={movie.id} className="flex h-76pxr cursor-pointer bg-gray-20">
-            <div className="flex-center relative h-full min-w-146pxr">
-              {movie.poster_path ? (
-                <Image
-                  sizes="146px"
-                  src={`${posterBaseUrl}${movie.poster_path}`}
-                  className="object-cover"
-                  fill
-                  priority
-                  alt="미디어 이미지"
-                />
-              ) : (
-                <NoImageIcon alt="없는 이미지" />
-              )}
-            </div>
-            <div className="flex flex-grow items-center justify-between px-10pxr py-21pxr">
-              <p className="max-w-160pxr text-16pxr">{movie.title}</p>
-              <PlayIcon alt="재생 아이콘" />
-            </div>
+      {moviesData?.map((movie) => (
+        <div key={movie.id} className="flex h-76pxr cursor-pointer bg-gray-20">
+          <div className="flex-center relative h-full min-w-146pxr">
+            {movie.poster_path ? (
+              <Image
+                sizes="146px"
+                src={`${posterBaseUrl}${movie.poster_path}`}
+                className="object-cover"
+                fill
+                priority
+                alt="미디어 이미지"
+              />
+            ) : (
+              <NoImageIcon alt="없는 이미지" />
+            )}
           </div>
-        );
-      })}
+          <div className="flex flex-grow items-center justify-between px-10pxr py-21pxr">
+            <p className="max-w-160pxr overflow-hidden text-16pxr">{movie.title}</p>
+            <PlayIcon alt="재생 아이콘" />
+          </div>
+        </div>
+      ))}
     </>
   );
 };
