@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,9 +21,13 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
   const data = movieData.results[randomIndex];
 
   return (
-    <section className="flex-column items-center mb-43pxr gap-11pxr">
-      <div className="h-375pxr w-full relative">
-        {randomIndex ? <Image src={`${posterBaseUrl}${data.poster_path}`} alt={`영화 포스터 이미지: ${data.title}`} fill priority/> : <span className="flex-center h-full text-gray-10">Loading...</span>}
+    <section className="flex-column mb-43pxr items-center gap-11pxr">
+      <div className="relative h-375pxr w-full">
+        {randomIndex ? (
+          <Image src={`${posterBaseUrl}${data.poster_path}`} alt={`영화 포스터 이미지: ${data.title}`} fill priority />
+        ) : (
+          <span className="flex-center h-full text-gray-10">Loading...</span>
+        )}
         <div className="absolute inset-0pxr bg-gradient-to-b"></div>
       </div>
       <div>
@@ -35,8 +39,8 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
           My List
         </div>
         <Link href={`/media/${data.id}`}>
-          <div className="flex-center h-45pxr w-110pxr bg-gray-30 rounded-md">
-            <div className="text-black flex-center gap-13pxr font-semibold text-18pxr">
+          <div className="flex-center h-45pxr w-110pxr rounded-md bg-gray-30">
+            <div className="flex-center gap-13pxr text-18pxr font-semibold text-black">
               <PlayIcon alt="play 아이콘" />
               Play
             </div>
