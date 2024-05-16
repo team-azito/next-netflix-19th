@@ -23,7 +23,6 @@ const SearchMovies = () => {
     setInputValue(e.target.value);
   };
 
-  // 디바운스 함수
   const debouncedSearch = useCallback(
     debounce((value: string) => {
       setDebouncedInputValue(value);
@@ -31,34 +30,32 @@ const SearchMovies = () => {
     [],
   );
 
-  // inputValue가 변경될 때마다 디바운스 함수 호출
   useEffect(() => {
     debouncedSearch(inputValue);
   }, [inputValue, debouncedSearch]);
 
   const { isVisible, targetRef } = useInfiniteScroll();
 
-  const { isFetching, data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
+  const { isFetching, isFetchingNextPage, data, fetchNextPage, hasNextPage } = useInfiniteQuery({
     queryKey: ["searchMovies", debouncedInputValue],
-    queryFn: ({ pageParam }) => {
-      return getSearchMovies({ page: pageParam, query: debouncedInputValue });
-    },
-    initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) => getSearchMovies({ page: pageParam, query: debouncedInputValue }),
     getNextPageParam: (lastPage) => {
       if (lastPage.page < lastPage.total_pages) {
         return lastPage.page + 1;
       }
+      return undefined;
     },
     enabled: !!debouncedInputValue,
+    initialPageParam: 1,
   });
 
   const searchMovies = data?.pages.flatMap((page) => page.results) || [];
 
   useEffect(() => {
-    if (isVisible && hasNextPage && !isFetching) {
+    if (isVisible && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
-  }, [isVisible, hasNextPage, isFetching, fetchNextPage]);
+  }, [isVisible, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return (
     <div className="h-full w-full">
@@ -77,13 +74,11 @@ const SearchMovies = () => {
 
       {inputValue ? (
         <>
-          <SearchedMovies
-            moviesData={searchMovies}
-            isLoading={isFetching && searchMovies.length !== 0 && !isFetchingNextPage}
-          />
+          <SearchedMovies moviesData={searchMovies} isLoading={isFetching && searchMovies.length === 0} />
           {!isFetching && searchMovies.length === 0 && (
             <p className="flex-center mt-120pxr">{debouncedInputValue}에 대한 검색 결과가 없어요.</p>
           )}
+          {/* {isFetchingNextPage && <p className="text-center">Loading more...</p>} */}
         </>
       ) : (
         <>
@@ -91,7 +86,7 @@ const SearchMovies = () => {
           <SearchedMovies moviesData={popularMoviesData?.results || []} isLoading={isLoadingPopularMovies} />
         </>
       )}
-      <div ref={targetRef} />
+      <div ref={targetRef}></div>
     </div>
   );
 };
