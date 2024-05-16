@@ -41,6 +41,15 @@ const config: Config = {
         "gradient-to-b": "linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) , rgba(0, 0, 0, 1))",
       },
     },
+    keyframes: {
+      slide: {
+        "0%": { transform: "translateX(-100%)" },
+        "100%": { transform: "translateX(100%)" },
+      },
+    },
+    animation: {
+      slide: "slide 1.5s linear infinite",
+    },
   },
   plugins: [],
 };
