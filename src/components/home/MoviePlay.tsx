@@ -27,7 +27,7 @@ const MoviePlay = ({ movieData }: MoviePlayProps) => {
         <div className="absolute inset-0pxr bg-gradient-to-b"></div>
       </div>
       <div>
-        <span className="text-13pxr font-bold">#{randomIndex + 1} in Korea Today</span>
+        {randomIndex ? <span className="text-13pxr font-bold">#{randomIndex + 1} in Korea Today</span> : undefined}
       </div>
       <div className="flex gap-50pxr">
         <div className="flex-center flex-column gap-3pxr text-13pxr">
