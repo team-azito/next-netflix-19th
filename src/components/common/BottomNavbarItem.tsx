@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import * as icons from "#/icons/bottomNavbar/svg";
 import { usePathname } from "next/navigation";
