@@ -4,7 +4,11 @@ const LandingAnimation = dynamic(() => import("@/components/root/LandingAnimatio
   ssr: false,
 });
 const RootPage = () => {
-  return <LandingAnimation />;
+  return (
+    <div className="flex-center h-screen">
+      <LandingAnimation />
+    </div>
+  );
 };
 
 export default RootPage;

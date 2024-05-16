@@ -72,13 +72,12 @@ const SearchMovies = () => {
         </button>
       </div>
 
-      {inputValue ? (
+      {debouncedInputValue ? (
         <>
           <SearchedMovies moviesData={searchMovies} isLoading={isFetching && searchMovies.length === 0} />
           {!isFetching && searchMovies.length === 0 && (
             <p className="flex-center mt-120pxr">{debouncedInputValue}에 대한 검색 결과가 없어요.</p>
           )}
-          {/* {isFetchingNextPage && <p className="text-center">Loading more...</p>} */}
         </>
       ) : (
         <>
