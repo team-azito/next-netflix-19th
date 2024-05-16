@@ -57,10 +57,10 @@ const SearchMovies = () => {
   const searchMovies = data?.pages.flatMap((page) => page.results) || [];
 
   useEffect(() => {
-    if (isVisible && hasNextPage) {
+    if (isVisible && hasNextPage && !isFetching) {
       fetchNextPage();
     }
-  }, [isVisible, hasNextPage, fetchNextPage]);
+  }, [isVisible, hasNextPage, isFetching, fetchNextPage]);
 
   return (
     <div className="h-full w-full">
@@ -79,14 +79,10 @@ const SearchMovies = () => {
 
       {inputValue ? (
         <>
-          {isFetching && searchMovies.length === 0 ? (
-            <SkeletonMovies />
-          ) : searchMovies.length > 0 ? (
-            <SearchedMovies moviesData={searchMovies} />
-          ) : (
-            !isFetching && <p className="flex flex-grow">검색 결과 없어요.</p>
+          <SearchedMovies moviesData={searchMovies} isLoading={isFetching} />
+          {!isFetching && searchMovies.length === 0 && (
+            <p className="flex-center mt-120pxr">{debouncedInputValue}에 대한 검색 결과가 없어요.</p>
           )}
-          <div ref={targetRef}></div>
         </>
       ) : (
         <>
@@ -94,10 +90,11 @@ const SearchMovies = () => {
           {isLoadingPopularMovies ? (
             <SkeletonMovies />
           ) : (
-            popularMoviesData?.results && <SearchedMovies moviesData={popularMoviesData.results} />
+            <SearchedMovies moviesData={popularMoviesData?.results || []} isLoading={isLoadingPopularMovies} />
           )}
         </>
       )}
+      <div ref={targetRef} />
     </div>
   );
 };
