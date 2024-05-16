@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PlusIcon from "#/icons/home/plus.svg";
@@ -10,16 +12,18 @@ interface MoviePlayProps {
 }
 const MoviePlay = ({ movieData }: MoviePlayProps) => {
   const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
+  const [randomIndex, setRandomIndex] = useState<number>(0);
 
-  const randomIndex = Math.floor(Math.random() * movieData.results.length);
+  useEffect(() => {
+    const index = Math.floor(Math.random() * movieData.results.length);
+    setRandomIndex(index);
+  }, [movieData]);
   const data = movieData.results[randomIndex];
-
-  console.log(randomIndex);
 
   return (
     <section className="flex-column items-center mb-43pxr gap-11pxr">
       <div className="h-375pxr w-full relative">
-        <Image src={`${posterBaseUrl}${data.poster_path}`} alt={`영화 포스터 이미지: ${data.title}`} fill />
+        {randomIndex ? <Image src={`${posterBaseUrl}${data.poster_path}`} alt={`영화 포스터 이미지: ${data.title}`} fill priority/> : <span className="flex-center h-full text-gray-10">Loading...</span>}
         <div className="absolute inset-0pxr bg-gradient-to-b"></div>
       </div>
       <div>
