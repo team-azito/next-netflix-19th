@@ -1,6 +1,6 @@
 import { GetMoviesResponse } from "@/types/home";
 
-export interface getSearchMoviessParams {
+export interface getSearchMoviesParams {
   page: number;
   query: string;
 }
