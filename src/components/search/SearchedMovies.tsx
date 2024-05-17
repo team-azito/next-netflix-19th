@@ -15,7 +15,9 @@ const SearchedMovies = ({ moviesData, isLoading }: SearchedMoviesProps) => {
     return <SkeletonMovies />;
   }
 
-  return <>{moviesData?.map((movie) => <MovieCard key={movie.id} movie={movie} />)}</>;
+  return (
+    <div className="flex-column gap-3pxr">{moviesData?.map((movie) => <MovieCard key={movie.id} movie={movie} />)}</div>
+  );
 };
 
 interface MovieCardProps {
