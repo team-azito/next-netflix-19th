@@ -17,7 +17,7 @@ const BottomNavbarItem = ({ item, children }: BottomNavbarItemProps) => {
 
   return (
     <Link href={`/${item}`}>
-      <li className="flex-column flex-center gap-5pxr">
+      <li className="flex-column flex-center cursor-pointer gap-5pxr">
         <Icon className={`${textColorClass}`} alt={`${item}`} />
         <span className={`text-8pxr ${textColorClass}`}>{children}</span>
       </li>
