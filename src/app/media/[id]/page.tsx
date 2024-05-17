@@ -6,7 +6,11 @@ interface Params {
   id: number;
 }
 
-const DetailPage = async ({ params }: { params: Params }) => {
+interface DetailPageProps {
+  params: Params;
+}
+
+const DetailPage = async ({ params }: DetailPageProps) => {
   const posterBaseUrl = process.env.NEXT_PUBLIC_POSTER_BASE_URL;
   const data = await getMediaDetails(params.id);
   return (
