@@ -20,7 +20,7 @@ const DetailPage = async ({ params }: { params: Params }) => {
         Play
       </button>
       <div className="flex-column gap-20pxr px-32pxr">
-        <h2 className="text-27pxr font-bold">Previews</h2>
+        <h2 className="text-27pxr font-bold">{data.title}</h2>
         <span className="text-11pxr">{data.overview}</span>
       </div>
     </div>
