@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Movie } from "@/types/common";
 import PlayIcon from "#/icons/search/icon-play.svg";
@@ -40,23 +41,25 @@ const MovieCard = ({ movie }: MovieCardProps) => {
   };
 
   return (
-    <div className="flex h-76pxr cursor-pointer bg-gray-20">
-      <div className="flex-center relative h-full min-w-146pxr">
-        <Image
-          sizes={sizes}
-          src={imageSrc}
-          className="object-cover"
-          fill
-          priority
-          alt="미디어 이미지"
-          onError={handleImageError}
-        />
+    <Link href={`/media/${movie.id}`}>
+      <div className="flex h-76pxr cursor-pointer bg-gray-20">
+        <div className="flex-center relative h-full min-w-146pxr">
+          <Image
+            sizes={sizes}
+            src={imageSrc}
+            className="object-cover"
+            fill
+            priority
+            alt="미디어 이미지"
+            onError={handleImageError}
+          />
+        </div>
+        <div className="flex flex-grow items-center justify-between px-10pxr py-21pxr">
+          <p className="max-w-160pxr overflow-hidden text-16pxr">{movie.title}</p>
+          <PlayIcon alt="재생 아이콘" />
+        </div>
       </div>
-      <div className="flex flex-grow items-center justify-between px-10pxr py-21pxr">
-        <p className="max-w-160pxr overflow-hidden text-16pxr">{movie.title}</p>
-        <PlayIcon alt="재생 아이콘" />
-      </div>
-    </div>
+    </Link>
   );
 };
 
