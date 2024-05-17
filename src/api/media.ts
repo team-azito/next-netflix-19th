@@ -1,7 +1,6 @@
 import { instance } from "@/api/axiosInstance";
-import { Movie } from "@/types/common";
+import { GetDetailsResponse } from "@/types/media";
 
-// 타입 설정 필요
-export const getMediaDetails = async (id: number): Promise<Movie> => {
+export const getMediaDetails = async (id: number): Promise<GetDetailsResponse> => {
   return await instance.get(`/movie/${id}?language=en-US&page=1`);
 };
