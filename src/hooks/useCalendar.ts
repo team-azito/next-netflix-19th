@@ -91,6 +91,11 @@ export const useCalendar = ({ initialYear, initialMonth }: { initialYear?: numbe
     }
   };
 
+  const handleTodayButtonClick = () => {
+    setYear(currentYear);
+    setMonth(currentMonth);
+  };
+
   return {
     year,
     month,
@@ -99,5 +104,6 @@ export const useCalendar = ({ initialYear, initialMonth }: { initialYear?: numbe
     nextMonthDays,
     handlePreviousMonth,
     handleNextMonth,
+    handleTodayButtonClick,
   };
 };
