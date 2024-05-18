@@ -31,6 +31,6 @@
     "**/*.js",
     "src/app/not-found.ts",
     "**/*.mjs"
-  ],
+, "src/app/api/sentiment"  ],
   "exclude": ["node_modules"]
 }
