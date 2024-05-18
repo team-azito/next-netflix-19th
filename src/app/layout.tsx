@@ -15,11 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="align-center flex min-h-screen justify-center bg-black">
+      <body className="align-center flex min-h-screen justify-center bg-blue-100">
         <Providers>
-          <div className="flex-column w-375pxr">
+          <div className="flex-column w-360pxr bg-white">
             <div className="pb-48pxr">{children}</div>
-            <BottomNavbar />
           </div>
         </Providers>
       </body>

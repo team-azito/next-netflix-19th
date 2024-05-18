@@ -1,7 +1,7 @@
-import SentimentAnalysis from "@/components/AI/SentimentAnalysis";
+import Calendar from "@/components/AI/Calendar";
 
 const TestPage = () => {
-  return <SentimentAnalysis />;
+  return <Calendar />;
 };
 
 export default TestPage;
